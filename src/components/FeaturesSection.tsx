@@ -55,7 +55,7 @@ export default function FeaturesSection() {
           <span className="font-sans text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
             Why Choose Us
           </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Every Detail, <span className="gold-text">Perfected</span>
           </h2>
           <p className="font-body text-lg text-muted-foreground max-w-xl mx-auto">
