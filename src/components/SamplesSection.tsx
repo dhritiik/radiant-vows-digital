@@ -37,7 +37,7 @@ export default function SamplesSection() {
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             See It In <span className="gold-text">Action</span>
           </h2>
-          <p className="font-body text-lg text-muted-foreground max-w-xl mx-auto">
+          <p className="font-body text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
             Experience how each guest receives a uniquely personalized invitation
           </p>
         </motion.div>
