@@ -3,7 +3,7 @@ import { Heart } from "lucide-react";
 
 export default function CTASection() {
   return (
-    <section id="contact" className="py-24 md:py-32 px-6 relative overflow-hidden">
+    <section id="contact" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 relative overflow-hidden">
       <div className="absolute inset-0 gold-gradient opacity-5" />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -13,7 +13,7 @@ export default function CTASection() {
         className="max-w-3xl mx-auto text-center relative z-10"
       >
         <Heart className="w-10 h-10 text-accent fill-accent mx-auto mb-6 animate-float" />
-        <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
           Ready to Create Your <span className="gold-text">Dream Invite?</span>
         </h2>
         <p className="font-body text-lg text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed">

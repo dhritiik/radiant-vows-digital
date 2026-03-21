@@ -9,7 +9,7 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="py-24 md:py-32 px-6 bg-card/50">
+    <section id="how-it-works" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 bg-card/50">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,12 +21,12 @@ export default function HowItWorksSection() {
           <span className="font-sans text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
             Simple Process
           </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
             How It <span className="gold-text">Works</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
@@ -36,9 +36,9 @@ export default function HowItWorksSection() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="font-display text-5xl font-bold gold-text mb-4">{step.number}</div>
-              <h3 className="font-display text-lg font-semibold text-foreground mb-2">{step.title}</h3>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+              <div className="font-display text-3xl sm:text-5xl font-bold gold-text mb-3 sm:mb-4">{step.number}</div>
+              <h3 className="font-display text-base sm:text-lg font-semibold text-foreground mb-2">{step.title}</h3>
+              <p className="font-body text-xs sm:text-sm text-muted-foreground leading-relaxed">{step.description}</p>
             </motion.div>
           ))}
         </div>
