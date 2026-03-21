@@ -3,7 +3,7 @@ import { Heart } from "lucide-react";
 
 export default function CTASection() {
   return (
-    <section id="contact" className="py-24 md:py-32 px-6 relative overflow-hidden">
+    <section id="contact" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 relative overflow-hidden">
       <div className="absolute inset-0 gold-gradient opacity-5" />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
