@@ -43,7 +43,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className="py-24 md:py-32 px-6 relative">
+    <section id="features" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 relative">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ export default function FeaturesSection() {
           <span className="font-sans text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
             Why Choose Us
           </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Every Detail, <span className="gold-text">Perfected</span>
           </h2>
           <p className="font-body text-lg text-muted-foreground max-w-xl mx-auto">
@@ -63,7 +63,7 @@ export default function FeaturesSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {features.map((feature, index) => (
             <FeatureCard
               key={feature.title}
