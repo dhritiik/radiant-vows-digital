@@ -42,3 +42,7 @@ export default function HowItWorksSection() {
             </motion.div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
