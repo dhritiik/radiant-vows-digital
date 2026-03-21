@@ -11,12 +11,36 @@ const samples = [
     subtitle: "Wedding · Mayra · Bhakti · Reception",
     url: "https://sj-zeta.vercel.app/?name=Smt._Kokilaben_L._Vora&event=wedding,mayra,bhakti,reception&guests_wedding=Family&guests_mayra=Family&guests_bhakti=Family&guests_reception=Family",
     image: sampleInvite1,
+    type: "Multi-Event Grand Wedding",
+    guests: "500 Personalized Invites",
+    location: "Mumbai, India",
   },
   {
     title: "Arihantbhai Family Invite",
     subtitle: "Wedding · Mayra · Reception",
     url: "https://sj-zeta.vercel.app/?name=Shri_Arihantbhai_P._Sheth&event=wedding,mayra,reception&guests_wedding=Family&guests_mayra=2&guests_reception=Family",
     image: sampleInvite2,
+    type: "Traditional Indian Wedding",
+    guests: "Customized Guest Count",
+    location: "Gujarat, India",
+  },
+  {
+    title: "Priya & Rahul's Wedding",
+    subtitle: "Ceremony · Reception · Sangeet",
+    url: "https://sj-zeta.vercel.app/?name=Guest_Name&event=wedding&guests_wedding=2",
+    image: sampleInvite1,
+    type: "Modern Fusion Wedding",
+    guests: "Interactive RSVP",
+    location: "Delhi, India",
+  },
+  {
+    title: "Destination Wedding Template",
+    subtitle: "Multi-Day Celebration",
+    url: "https://sj-zeta.vercel.app/?name=Distinguished_Guest&event=wedding,reception&guests_wedding=Family&guests_reception=Family",
+    image: sampleInvite2,
+    type: "Luxury Destination Event",
+    guests: "Exclusive Guest Experience",
+    location: "Global",
   },
 ];
 
@@ -116,6 +140,9 @@ export default function SamplesSection() {
                     <Play className="w-6 h-6 text-primary-foreground fill-primary-foreground" />
                   </div>
                 </div>
+                <div className="absolute top-4 right-4 glass-card px-3 py-1 rounded-full">
+                  <span className="font-sans text-xs gold-text font-medium">Live Preview</span>
+                </div>
               </div>
 
               {/* Card Content */}
@@ -130,9 +157,16 @@ export default function SamplesSection() {
                   </div>
                   <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-gold transition-colors flex-shrink-0" />
                 </div>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                  Click to experience a live, personalized wedding invitation with custom guest names,
-                  filtered events, and curated aesthetics.
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="font-sans text-xs bg-gold/10 text-gold px-2 py-1 rounded">
+                    {sample.type}
+                  </span>
+                  <span className="font-sans text-xs bg-rose/10 text-rose px-2 py-1 rounded">
+                    {sample.location}
+                  </span>
+                </div>
+                <p className="font-body text-sm text-muted-foreground leading-relaxed mb-2">
+                  {sample.guests} - Click to experience a fully personalized invitation
                 </p>
               </div>
             </motion.a>

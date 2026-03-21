@@ -52,11 +52,29 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="font-body text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2"
+          className="font-body text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed px-2"
         >
           Breathtaking, personalized digital invitations that greet each guest by name,
           curate their unique event schedule, and set the perfect mood for your celebration.
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="flex items-center justify-center gap-4 mb-8 sm:mb-10"
+        >
+          <div className="glass-card px-4 py-2 rounded-full">
+            <span className="font-sans text-xs sm:text-sm text-muted-foreground">
+              <span className="gold-text font-semibold">500+</span> Guests Delighted
+            </span>
+          </div>
+          <div className="glass-card px-4 py-2 rounded-full">
+            <span className="font-sans text-xs sm:text-sm text-muted-foreground">
+              <span className="gold-text font-semibold">Beta</span> Launch Special
+            </span>
+          </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

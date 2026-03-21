@@ -124,4 +124,13 @@
     backdrop-filter: blur(20px);
     border: 1px solid hsl(var(--border) / 0.5);
   }
+
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -10px hsl(var(--gold) / 0.3);
+  }
 }
