@@ -1,14 +1,25 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Sparkles } from "lucide-react";
 import WeddingScene from "./WeddingScene";
+import heroImage from "@/assets/invite-showcase-hero.jpg";
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background image layer */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={heroImage}
+          alt="Wedding invitation showcase"
+          className="w-full h-full object-cover opacity-20"
+        />
+      </div>
+
+      {/* 3D Scene overlay */}
       <WeddingScene />
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background z-[1]" />
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.div
