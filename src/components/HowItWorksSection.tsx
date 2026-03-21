@@ -21,7 +21,7 @@ export default function HowItWorksSection() {
           <span className="font-sans text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
             Simple Process
           </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
             How It <span className="gold-text">Works</span>
           </h2>
         </motion.div>
