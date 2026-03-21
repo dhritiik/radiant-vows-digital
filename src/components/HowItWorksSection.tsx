@@ -26,7 +26,7 @@ export default function HowItWorksSection() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
@@ -36,13 +36,9 @@ export default function HowItWorksSection() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <div className="font-display text-5xl font-bold gold-text mb-4">{step.number}</div>
-              <h3 className="font-display text-lg font-semibold text-foreground mb-2">{step.title}</h3>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+              <div className="font-display text-3xl sm:text-5xl font-bold gold-text mb-3 sm:mb-4">{step.number}</div>
+              <h3 className="font-display text-base sm:text-lg font-semibold text-foreground mb-2">{step.title}</h3>
+              <p className="font-body text-xs sm:text-sm text-muted-foreground leading-relaxed">{step.description}</p>
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
