@@ -30,33 +30,6 @@ const testimonials = [
     event: "Luxury Destination Wedding",
     guests: 350,
   },
-  {
-    name: "Emily & James",
-    location: "New York, USA",
-    image: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=200",
-    rating: 5,
-    text: "Modern, sleek, and incredibly personal. Our tech-savvy friends loved it, and even our grandparents found it easy to use. The unique link for each guest was such a thoughtful detail!",
-    event: "Modern City Wedding",
-    guests: 180,
-  },
-  {
-    name: "Ananya & Vikram",
-    location: "Bangalore, India",
-    image: "https://images.pexels.com/photos/2788488/pexels-photo-2788488.jpeg?auto=compress&cs=tinysrgb&w=200",
-    rating: 5,
-    text: "This was exactly what we needed for our tech-forward wedding! The personalized touches, custom music, and seamless event filtering made our lives so much easier. Highly recommend!",
-    event: "Contemporary Indian Wedding",
-    guests: 400,
-  },
-  {
-    name: "Sophie & Lucas",
-    location: "Paris, France",
-    image: "https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=200",
-    rating: 5,
-    text: "Magnifique! The elegance and sophistication of these invites perfectly matched our wedding aesthetic. Each guest felt valued with their personalized experience.",
-    event: "Romantic French Wedding",
-    guests: 150,
-  },
 ];
 
 export default function TestimonialsSection() {
@@ -119,6 +92,10 @@ export default function TestimonialsSection() {
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-full object-cover ring-2 ring-gold/20"
+                  loading="lazy"
+                  decoding="async"
+                  width="48"
+                  height="48"
                 />
                 <div>
                   <h4 className="font-display font-semibold text-foreground text-sm">

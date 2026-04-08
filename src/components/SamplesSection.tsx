@@ -1,177 +1,201 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Play } from "lucide-react";
-import sampleInvite1 from "@/assets/sample-invite-1.png";
-import sampleInvite2 from "@/assets/sample-invite-2.png";
-import phonesShowcase from "@/assets/invite-phones-showcase.jpg";
-import showcaseVideo from "@/assets/invite-showcase-video.mp4.asset.json";
+import { Eye, Users, Calendar, MapPin, ChevronRight, Sparkles } from "lucide-react";
 
 const samples = [
   {
-    title: "Kokilaben Family Invite",
-    subtitle: "Wedding · Mayra · Bhakti · Reception",
-    url: "https://sj-zeta.vercel.app/?name=Smt._Kokilaben_L._Vora&event=wedding,mayra,bhakti,reception&guests_wedding=Family&guests_mayra=Family&guests_bhakti=Family&guests_reception=Family",
-    image: sampleInvite1,
-    type: "Multi-Event Grand Wedding",
-    guests: "500 Personalized Invites",
-    location: "Mumbai, India",
+    title: "Priya Sharma",
+    subtitle: "Luxury Grand Wedding",
+    url: "https://sj-zeta.vercel.app/?name=Priya_Sharma&event=wedding,mayra,bhakti,reception&guests_wedding=Family&guests_mayra=Family&guests_bhakti=Family&guests_reception=Family",
+    events: ["Wedding", "Mayra", "Bhakti", "Reception"],
+    guests: "Family (all events)",
+    location: "Mumbai",
+    color: "#c9a96e",
+    highlight: "500+ invites sent",
   },
   {
-    title: "Arihantbhai Family Invite",
-    subtitle: "Wedding · Mayra · Reception",
-    url: "https://sj-zeta.vercel.app/?name=Shri_Arihantbhai_P._Sheth&event=wedding,mayra,reception&guests_wedding=Family&guests_mayra=2&guests_reception=Family",
-    image: sampleInvite2,
-    type: "Traditional Indian Wedding",
-    guests: "Customized Guest Count",
-    location: "Gujarat, India",
+    title: "Ria Vora",
+    subtitle: "Elegant Destination Wedding",
+    url: "https://sj-zeta.vercel.app/?invite=wedding2&name=Ria_Vora&event=wedding,mayra,bhakti,reception&guests_wedding=Family&guests_mayra=Family&guests_bhakti=Family&guests_reception=Family",
+    events: ["Wedding", "Mayra", "Bhakti", "Reception"],
+    guests: "Family (all events)",
+    location: "Udaipur",
+    color: "#d4a0a7",
+    highlight: "Hand-crafted design",
   },
   {
-    title: "Priya & Rahul's Wedding",
-    subtitle: "Ceremony · Reception · Sangeet",
-    url: "https://sj-zeta.vercel.app/?name=Guest_Name&event=wedding&guests_wedding=2",
-    image: sampleInvite1,
-    type: "Modern Fusion Wedding",
-    guests: "Interactive RSVP",
-    location: "Delhi, India",
-  },
-  {
-    title: "Destination Wedding Template",
-    subtitle: "Multi-Day Celebration",
-    url: "https://sj-zeta.vercel.app/?name=Distinguished_Guest&event=wedding,reception&guests_wedding=Family&guests_reception=Family",
-    image: sampleInvite2,
-    type: "Luxury Destination Event",
-    guests: "Exclusive Guest Experience",
-    location: "Global",
+    title: "Dhriti",
+    subtitle: "Milestone 50th Anniversary Party",
+    url: "https://sj-zeta.vercel.app/?invite=anni&name=dhriti",
+    events: ["Anniversary Celebration", "Gala Dinner"],
+    guests: "VIP Access",
+    location: "Gujarat",
+    color: "#a0b4d4",
+    highlight: "Custom guest experience",
   },
 ];
 
+const EVENT_COLORS = ["#c9a96e", "#d4a0a7", "#a0b4d4", "#a0d4b4"];
+
+/* Compact elegant link card */
+function SampleCard({ sample, index }: { sample: typeof samples[0]; index: number }) {
+  return (
+    <motion.div
+      style={{
+        background: "hsl(var(--card) / 0.8)",
+        backdropFilter: "blur(20px)",
+        border: `1px solid ${sample.color}33`,
+      }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -6, boxShadow: `0 20px 40px ${sample.color}15`, borderColor: `${sample.color}66` }}
+      transition={{ duration: 0.4 }}
+      viewport={{ once: true }}
+      className="group relative rounded-3xl p-6 overflow-hidden cursor-pointer h-full flex flex-col justify-between"
+    >
+      {/* Top accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-1"
+        style={{ background: `linear-gradient(90deg, ${sample.color}, ${sample.color}33)` }}
+      />
+
+      <div className="relative z-10 w-full">
+        {/* Header with Live Badge */}
+        <div className="flex items-start justify-between mb-4">
+          <div
+            className="w-12 h-12 rounded-2xl flex items-center justify-center"
+            style={{ background: sample.color + "15", border: `1px solid ${sample.color}33` }}
+          >
+            <Sparkles className="w-6 h-6" style={{ color: sample.color }} />
+          </div>
+          <div
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-sans font-bold uppercase tracking-wider"
+            style={{ background: sample.color + "10", border: `1px solid ${sample.color}33`, color: sample.color }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: sample.color }} />
+            Live Invite
+          </div>
+        </div>
+
+        <div className="mb-4">
+          <h3 className="font-display text-xl font-bold text-foreground leading-tight group-hover:text-gold transition-colors">{sample.title}</h3>
+          <p className="font-sans text-xs text-muted-foreground mt-1 uppercase tracking-widest">{sample.subtitle}</p>
+        </div>
+
+        {/* Metadata row */}
+        <div className="flex flex-col gap-2 mb-6">
+          <div className="flex items-center gap-2 text-xs font-sans text-muted-foreground">
+            <Users className="w-3.5 h-3.5 opacity-60" />
+            <span>{sample.guests}</span>
+          </div>
+          <div className="flex items-center gap-2 text-xs font-sans text-muted-foreground">
+            <MapPin className="w-3.5 h-3.5 opacity-60" />
+            <span>{sample.location}</span>
+          </div>
+          <div className="flex items-center gap-2 text-xs font-sans text-muted-foreground">
+            <Calendar className="w-3.5 h-3.5 opacity-60" />
+            <span>{sample.events.length} Events Crafted</span>
+          </div>
+        </div>
+
+        {/* Event pills */}
+        <div className="flex flex-wrap gap-1.5 mb-6">
+          {sample.events.map((ev, i) => (
+            <span key={ev} className="font-sans text-[10px] px-2.5 py-0.5 rounded-full"
+              style={{
+                background: EVENT_COLORS[i % EVENT_COLORS.length] + "10",
+                border: `1px solid ${EVENT_COLORS[i % EVENT_COLORS.length]}33`,
+                color: EVENT_COLORS[i % EVENT_COLORS.length],
+              }}
+            >
+              {ev}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Footer link */}
+      <div className="relative z-10 pt-4 mt-auto border-t border-border/30">
+        <a
+          href={sample.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-between w-full font-sans text-sm font-bold group/link"
+          style={{ color: sample.color }}
+          onClick={e => e.stopPropagation()}
+        >
+          <span className="flex items-center gap-2">
+            <Eye className="w-4 h-4" />
+            Experience Now
+          </span>
+          <ChevronRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
+        </a>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function SamplesSection() {
   return (
-    <section id="samples" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <span className="font-sans text-xs tracking-[0.3em] uppercase text-gold mb-4 block">
-            Live Examples
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-            See It In <span className="gold-text">Action</span>
-          </h2>
-          <p className="font-body text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
-            Experience how each guest receives a uniquely personalized invitation
-          </p>
-        </motion.div>
+    <section id="samples" className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-rose-light/5 to-transparent pointer-events-none" />
 
-        {/* Video Showcase */}
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mb-16 relative rounded-3xl overflow-hidden rose-glow"
+          className="text-center mb-16"
         >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-auto rounded-3xl"
-            poster={phonesShowcase}
-          >
-            <source src={showcaseVideo.url} type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent flex items-end justify-center pb-8">
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              viewport={{ once: true }}
-              className="font-display text-xl md:text-2xl text-foreground font-semibold"
-            >
-              Every invite, uniquely <span className="gold-text">personalized</span>
-            </motion.p>
-          </div>
+          <span className="font-sans text-xs tracking-[0.35em] uppercase text-gold mb-3 block">Live Examples</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-5">
+            Click. Open. Be{" "}
+            <span className="gold-text">Amazed.</span>
+          </h2>
+          <p className="font-body text-lg text-muted-foreground max-w-xl mx-auto">
+            These are real, working invites — open them to experience exactly what your guests will see. No logins, just magic.
+          </p>
         </motion.div>
 
-        {/* Phones showcase image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <img
-            src={phonesShowcase}
-            alt="Wedding invitations displayed on multiple smartphones with golden borders and rose petals"
-            className="w-full max-w-3xl mx-auto rounded-2xl shadow-2xl"
-          />
-        </motion.div>
-
-        {/* Sample Cards with Screenshots */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+        {/* Sample cards grid - simplified */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {samples.map((sample, index) => (
-            <motion.a
+            <a
               key={sample.title}
               href={sample.url}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5, transition: { duration: 0.3 } }}
-              className="glass-card rounded-2xl overflow-hidden group block relative"
+              className="h-full block"
             >
-              {/* Screenshot Preview */}
-              <div className="relative overflow-hidden">
-                <img
-                  src={sample.image}
-                  alt={`${sample.title} - Live preview of personalized wedding invitation`}
-                  className="w-full h-56 object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="gold-gradient rounded-full p-4 rose-glow">
-                    <Play className="w-6 h-6 text-primary-foreground fill-primary-foreground" />
-                  </div>
-                </div>
-                <div className="absolute top-4 right-4 glass-card px-3 py-1 rounded-full">
-                  <span className="font-sans text-xs gold-text font-medium">Live Preview</span>
-                </div>
-              </div>
-
-              {/* Card Content */}
-              <div className="p-6">
-                <div className="absolute top-0 left-0 right-0 h-1 gold-gradient opacity-60 group-hover:opacity-100 transition-opacity" />
-                <div className="flex items-start justify-between mb-3">
-                  <div>
-                    <h3 className="font-display text-xl font-semibold text-foreground mb-1">
-                      {sample.title}
-                    </h3>
-                    <p className="font-sans text-sm text-muted-foreground">{sample.subtitle}</p>
-                  </div>
-                  <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-gold transition-colors flex-shrink-0" />
-                </div>
-                <div className="flex flex-wrap gap-2 mb-3">
-                  <span className="font-sans text-xs bg-gold/10 text-gold px-2 py-1 rounded">
-                    {sample.type}
-                  </span>
-                  <span className="font-sans text-xs bg-rose/10 text-rose px-2 py-1 rounded">
-                    {sample.location}
-                  </span>
-                </div>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed mb-2">
-                  {sample.guests} - Click to experience a fully personalized invitation
-                </p>
-              </div>
-            </motion.a>
+              <SampleCard sample={sample} index={index} />
+            </a>
           ))}
         </div>
+
+        {/* CTA strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mt-20 flex flex-col sm:flex-row items-center justify-center gap-6 text-center"
+        >
+          <p className="font-body text-base text-muted-foreground italic">
+            "Every guest is different. Every invite should be too."
+          </p>
+          <a
+            href="#contact"
+            className="flex items-center gap-2 font-sans text-sm font-semibold px-8 py-4 rounded-full flex-shrink-0 transition-transform hover:scale-105"
+            style={{
+              background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--primary)))",
+              color: "hsl(var(--primary-foreground))",
+              boxShadow: "0 10px 30px hsl(var(--gold) / 0.2)",
+            }}
+          >
+            Create My Custom Invite <ChevronRight className="w-4 h-4" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
