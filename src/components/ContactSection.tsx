@@ -1,50 +1,63 @@
 import { motion } from "framer-motion";
 import { MessageCircle, Mail, Phone, Sparkles, Send, Heart } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const WHATSAPP_NUMBER = "918080001149";
 const PHONE_DISPLAY = "+91 8080001149";
 const EMAIL = "dhritikothari01@gmail.com";
 
-const contactMethods = [
-  {
-    icon: MessageCircle,
-    label: "WhatsApp",
-    value: "Available on WhatsApp",
-    subtext: "Fastest response — message us anytime",
-    href: `https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%27m%20interested%20in%20Radiant%20Vows%20Digital%20Invites.`,
-    color: "#25D366",
-    bg: "#25D36618",
-    border: "#25D36640",
-    cta: "Chat on WhatsApp",
-    emoji: "💬",
-  },
-  {
-    icon: Phone,
-    label: "Phone / Call",
-    value: "WhatsApp Audio Preferred",
-    subtext: "Message us first to schedule a quick call",
-    href: `https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%27d%20like%20to%20schedule%20a%20call%20to%20discuss%20my%20event.`,
-    color: "hsl(var(--gold))",
-    bg: "hsl(var(--gold) / 0.1)",
-    border: "hsl(var(--gold) / 0.35)",
-    cta: "Message to Call",
-    emoji: "📞",
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: EMAIL,
-    subtext: "Send us your guest lists & theme photos",
-    href: `mailto:${EMAIL}?subject=Digital%20Invite%20Enquiry`,
-    color: "#a0b4d4",
-    bg: "#a0b4d415",
-    border: "#a0b4d440",
-    cta: "Send Email",
-    emoji: "✉️",
-  },
-];
-
 export default function ContactSection() {
+  const [selectedPackage, setSelectedPackage] = useState("");
+
+  useEffect(() => {
+    // Get the selected package from sessionStorage
+    const pkg = sessionStorage.getItem("selectedPackage");
+    if (pkg) {
+      setSelectedPackage(pkg);
+    }
+  }, []);
+
+  const getContactMethods = () => [
+    {
+      icon: MessageCircle,
+      label: "WhatsApp",
+      value: "Available on WhatsApp",
+      subtext: "Fastest response — message us anytime",
+      href: `https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%27m%20interested%20in%20Yours%20Truly%20Invites%20${selectedPackage ? `- ${selectedPackage} Package` : "Digital Invites"}.`,
+      color: "#25D366",
+      bg: "#25D36618",
+      border: "#25D36640",
+      cta: "Chat on WhatsApp",
+      emoji: "💬",
+    },
+    {
+      icon: Phone,
+      label: "Phone / Call",
+      value: "WhatsApp Audio Preferred",
+      subtext: "Message us first to schedule a quick call",
+      href: `https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%27d%20like%20to%20schedule%20a%20call%20${selectedPackage ? `to discuss the ${selectedPackage} Package` : "to discuss my event"}.`,
+      color: "hsl(var(--gold))",
+      bg: "hsl(var(--gold) / 0.1)",
+      border: "hsl(var(--gold) / 0.35)",
+      cta: "Message to Call",
+      emoji: "📞",
+      isWhatsApp: true,
+    },
+    {
+      icon: Mail,
+      label: "Email",
+      value: EMAIL,
+      subtext: "Send us your guest lists & theme photos",
+      href: `mailto:${EMAIL}?subject=Digital%20Invite%20Enquiry%20${selectedPackage ? `- ${selectedPackage}%20Package` : ""}`,
+      color: "#a0b4d4",
+      bg: "#a0b4d415",
+      border: "#a0b4d440",
+      cta: "Send Email",
+      emoji: "✉️",
+    },
+  ];
+
+  const contactMethods = getContactMethods();
   return (
     <section
       id="contact"
@@ -94,7 +107,7 @@ export default function ContactSection() {
             <motion.a
               key={method.label}
               href={method.href}
-              target={method.label !== "Phone / Call" ? "_blank" : undefined}
+              target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -196,7 +209,7 @@ export default function ContactSection() {
               Message us on WhatsApp to check availability for your date.
             </p>
             <motion.a
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%27d%20like%20to%20book%20a%20slot%20for%20my%20event%20invite.`}
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%27d%20like%20to%20book%20a%20slot%20for%20my%20event%20invite${selectedPackage ? `%20-%20${selectedPackage}%20Package` : ""}.`}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}

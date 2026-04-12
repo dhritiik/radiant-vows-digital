@@ -4,10 +4,10 @@ import { useRef, useState, useEffect } from "react";
 import heroImage from "@/assets/invite-showcase-hero.jpg";
 
 const SAMPLE_GUESTS = [
-  { name: "Smt. Kokilaben", events: ["Wedding", "Reception"] },
+  { name: "Ms. Priya Patel", events: ["Sangeet", "Wedding", "Reception"] },
   { name: "The Sharma Family", events: ["Ariana's 5th Birthday", "Magic Show"] },
   { name: "Mr. & Mrs. Mehta", events: ["50th Anniversary", "Gala Dinner"] },
-  { name: "Rahul's Friends", events: ["Surprise Party", "Afterparty"] },
+  { name: "Rahul Jain", events: ["Surprise Party", "Afterparty"] },
 ];
 
 const EVENT_TAG_COLORS = ["#c9a96e", "#d4a0a7", "#a0b4d4", "#a0d4b4", "#d4c4a0"];
@@ -39,7 +39,7 @@ function InviteMockup() {
           padding: "10px",
         }}
       >
-        {/* Status bar */}
+        {/* StatFus bar */}
         <div className="flex items-center justify-between px-2 py-1 mb-2">
           <span className="font-sans text-xs opacity-40" style={{ color: "hsl(var(--cream))" }}>9:41</span>
           <div className="w-16 h-4 rounded-full" style={{ background: "hsl(25, 35%, 18%)" }} />
@@ -130,12 +130,12 @@ function InviteMockup() {
               <p className="font-display text-base font-bold"
                 style={{ color: "hsl(var(--foreground))" }}
               >
-                Saloni ♥ Jay
+                Devika ♥ Nikhil
               </p>
               <p className="font-sans text-xs opacity-40 mt-0.5"
                 style={{ color: "hsl(var(--foreground))" }}
               >
-                Feb 14 · Gujarat
+                Feb 14 · Mumbai
               </p>
             </div>
           </div>
@@ -223,7 +223,7 @@ export default function HeroSection() {
             >
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-gold" />
               <span className="font-sans text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase text-muted-foreground">
-                Digital Event Invitations
+                Yours Truly invites you to...
               </span>
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-gold" />
             </motion.div>
@@ -232,9 +232,9 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 sm:mb-6"
+              className="font-display text-3xl sm:text-5xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 sm:mb-6"
             >
-              <span className="text-foreground">One Invite.</span>
+              <span className="text-foreground">The Magic of an Invite</span>
               <br />
               <span
                 style={{
@@ -244,7 +244,7 @@ export default function HeroSection() {
                   backgroundClip: "text",
                 }}
               >
-                Infinite Experiences.
+                That Adapts to Whoever is Looking
               </span>
             </motion.h1>
 
@@ -254,9 +254,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="font-body text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mb-6 sm:mb-8 leading-relaxed"
             >
-              The only smart invitation that greets every guest by name,
-              shows only their events, and tells them exactly how many seats they have.
-            </motion.p>
+              An invitation that honors every relationship. It welcomes your guests by name, curates their exclusive itinerary, and gracefully secures their exact place in your celebration. </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

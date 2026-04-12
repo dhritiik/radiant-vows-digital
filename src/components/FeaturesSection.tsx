@@ -6,21 +6,21 @@ import {
 } from "lucide-react";
 import FeatureCard from "./FeatureCard";
 
-/* ─── Vibrant palette (color theory: gold anchor + split-complementary + triadic) ───
-   Gold:    HSL(40,  90%, 58%)  — warm anchor
-   Azure:   HSL(210, 82%, 60%)  — split-complement (blue)
-   Rose:    HSL(340, 78%, 62%)  — split-complement (pink)
-   Emerald: HSL(152, 70%, 44%)  — triadic green
-   Purple:  HSL(270, 68%, 62%)  — triadic violet
+/* ─── Vibrant palette (color theory: red/pink/crimson theme) ───
+   Red:     HSL(0,   80%, 50%)  — warm anchor (vibrant red)
+   Azure:   HSL(210, 82%, 60%)  — complementary (blue)
+   Rose:    HSL(347, 80%, 60%)  — deeper pink
+   Emerald: HSL(152, 70%, 44%)  — complementary (green)
+   Purple:  HSL(270, 68%, 62%)  — complementary (violet)
    Coral:   HSL(16,  88%, 60%)  — analogous warm
 */
 const PALETTE = {
-  gold: { h: "hsl(40,  90%, 58%)", bg: "hsl(40,  90%, 58% / 0.12)", border: "hsl(40,  90%, 58% / 0.35)" },
+  gold: { h: "hsl(0,   80%, 50%)", bg: "hsl(0,   80%, 50% / 0.12)", border: "hsl(0,   80%, 50% / 0.35)" },
   azure: { h: "hsl(210, 82%, 62%)", bg: "hsl(210, 82%, 62% / 0.12)", border: "hsl(210, 82%, 62% / 0.35)" },
-  rose: { h: "hsl(340, 78%, 64%)", bg: "hsl(340, 78%, 64% / 0.12)", border: "hsl(340, 78%, 64% / 0.35)" },
+  rose: { h: "hsl(347, 80%, 60%)", bg: "hsl(347, 80%, 60% / 0.12)", border: "hsl(347, 80%, 60% / 0.35)" },
   emerald: { h: "hsl(152, 70%, 44%)", bg: "hsl(152, 70%, 44% / 0.12)", border: "hsl(152, 70%, 44% / 0.35)" },
   purple: { h: "hsl(270, 68%, 64%)", bg: "hsl(270, 68%, 64% / 0.12)", border: "hsl(270, 68%, 64% / 0.35)" },
-  coral: { h: "hsl(16,  88%, 60%)", bg: "hsl(16,  88%, 60% / 0.12)", border: "hsl(16,  88%, 60% / 0.35)" },
+  coral: { h: "hsl(347, 80%, 60%)", bg: "hsl(347, 80%, 60% / 0.12)", border: "hsl(347, 80%, 60% / 0.35)" },
 };
 
 /* ─── Live Demo: guest name cycles ─── */
@@ -34,9 +34,9 @@ const GUEST_NAMES = [
 const EVENTS = ["Birthday", "Anniversary", "Wedding", "Gala"];
 
 const EVENT_CHIPS: Record<string, { color: string; bg: string }> = {
-  Birthday: { color: "hsl(20,  85%, 55%)", bg: "hsl(20,  85%, 55% / 0.15)" },
+  Birthday: { color: "hsl(347, 80%, 60%)", bg: "hsl(347, 80%, 60% / 0.15)" },
   Anniversary: { color: "hsl(330,  75%, 65%)", bg: "hsl(330,  75%, 65% / 0.15)" },
-  Wedding: { color: "hsl(40,  90%, 45%)", bg: "hsl(40,  90%, 58% / 0.15)" },
+  Wedding: { color: "hsl(0,   80%, 50%)", bg: "hsl(0,   80%, 50% / 0.15)" },
   Gala: { color: "hsl(180,  40%, 45%)", bg: "hsl(180,  40%, 45% / 0.15)" },
 };
 
@@ -53,16 +53,16 @@ function LivePersonalizationDemo() {
 
   return (
     <div className="rounded-xl overflow-hidden"
-      style={{ background: "hsl(40, 30%, 96%)", border: "1.5px solid hsl(40, 90%, 58% / 0.4)" }}
+      style={{ background: "hsl(0, 30%, 96%)", border: "1.5px solid hsl(0, 80%, 50% / 0.4)" }}
     >
       <div className="px-3 py-2 flex items-center justify-between"
-        style={{ background: "hsl(40, 90%, 58% / 0.1)", borderBottom: "1px solid hsl(40, 90%, 58% / 0.2)" }}
+        style={{ background: "hsl(0, 80%, 50% / 0.1)", borderBottom: "1px solid hsl(0, 80%, 50% / 0.2)" }}
       >
         <span className="font-sans text-xs font-semibold tracking-widest uppercase"
-          style={{ color: "hsl(40, 80%, 38%)" }}>Live Preview</span>
+          style={{ color: "hsl(0, 80%, 40%)" }}>Live Preview</span>
         <button onClick={() => setPlaying(p => !p)}
           className="w-5 h-5 flex items-center justify-center rounded hover:opacity-70 transition-opacity"
-          style={{ color: "hsl(40, 80%, 40%)" }}>
+          style={{ color: "hsl(0, 80%, 42%)" }}>
           {playing ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
         </button>
       </div>
@@ -73,7 +73,7 @@ function LivePersonalizationDemo() {
             initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.35 }}
             className="font-display text-sm font-bold"
-            style={{ color: "hsl(40, 75%, 35%)" }}
+            style={{ color: "hsl(0, 75%, 45%)" }}
           >
             {GUEST_NAMES[nameIdx]}
           </motion.p>
@@ -225,120 +225,6 @@ const featureConfigs = [
   },
 ];
 
-/* ─── Hero Banner ─── */
-function HeroBanner() {
-  const [current, setCurrent] = useState(0);
-  const stats = [
-    { number: "500+", label: "Personalized Invites Sent", emoji: "✉️", bg: PALETTE.gold.bg, color: PALETTE.gold.h },
-    { number: "100%", label: "Personalization", emoji: "👤", bg: PALETTE.rose.bg, color: PALETTE.rose.h },
-    { number: "6+", label: "Events Per Invite", emoji: "📅", bg: PALETTE.azure.bg, color: PALETTE.azure.h },
-    { number: "0", label: "Tech Skills Needed", emoji: "✨", bg: PALETTE.emerald.bg, color: PALETTE.emerald.h },
-  ];
-
-  useEffect(() => {
-    const t = setInterval(() => setCurrent(i => (i + 1) % stats.length), 2500);
-    return () => clearInterval(t);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="mb-12 relative rounded-3xl overflow-hidden"
-      style={{
-        background: "linear-gradient(145deg, hsl(25, 55%, 12%) 0%, hsl(260, 30%, 14%) 50%, hsl(25, 45%, 12%) 100%)",
-        border: "1px solid hsl(40, 80%, 55% / 0.3)",
-        boxShadow: "0 24px 80px hsl(25, 60%, 8% / 0.5)",
-      }}
-    >
-      {/* Subtle grid */}
-      <div className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: `linear-gradient(hsl(40,90%,58%) 1px, transparent 1px), linear-gradient(90deg, hsl(40,90%,58%) 1px, transparent 1px)`,
-          backgroundSize: "44px 44px",
-        }}
-      />
-      {/* Glowing orbs */}
-      <div className="absolute top-0 left-1/4 w-72 h-72 rounded-full blur-3xl opacity-20 -translate-y-1/2"
-        style={{ background: "hsl(40, 90%, 58%)" }} />
-      <div className="absolute bottom-0 right-1/4 w-72 h-72 rounded-full blur-3xl opacity-15 translate-y-1/2"
-        style={{ background: "hsl(270, 68%, 64%)" }} />
-
-      <div className="relative z-10 px-6 sm:px-10 md:px-14 py-10 md:py-12">
-        <div className="flex flex-col lg:flex-row items-center gap-10">
-
-          {/* Left: headline */}
-          <div className="flex-1 text-center lg:text-left">
-            <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
-              <div className="h-px w-8 opacity-50" style={{ background: "hsl(40, 90%, 58%)" }} />
-              <span className="font-sans text-xs tracking-[0.3em] uppercase font-semibold"
-                style={{ color: "hsl(40, 90%, 70%)" }}>India's First</span>
-              <div className="h-px w-8 opacity-50" style={{ background: "hsl(40, 90%, 58%)" }} />
-            </div>
-            <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4 text-white">
-              Event Invites{" "}
-              <span style={{
-                background: "linear-gradient(135deg, hsl(40,90%,65%), hsl(40,90%,78%))",
-                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
-              }}>Personalized</span>
-              <br />for{" "}
-              <span style={{
-                background: "linear-gradient(135deg, hsl(340,78%,72%), hsl(270,68%,75%))",
-                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
-              }}>Every Single Guest</span>
-            </h3>
-            <p className="font-body text-lg leading-relaxed" style={{ color: "hsl(30, 20%, 70%)" }}>
-              Not a template. Not a generic link. A completely unique experience,
-              <br className="hidden md:block" /> crafted just for each person you invite.
-            </p>
-          </div>
-
-          {/* Right: stat cards */}
-          <div className="grid grid-cols-2 gap-3 flex-shrink-0">
-            {stats.map((s, i) => (
-              <motion.div key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.1 + 0.3 }}
-                viewport={{ once: true }}
-                className="px-5 py-4 rounded-2xl text-center"
-                style={{
-                  background: current === i ? s.bg : "hsl(255, 15%, 18%)",
-                  border: `1px solid ${current === i ? s.color : "hsl(255, 15%, 28%)"}`,
-                  transform: current === i ? "scale(1.06) translateZ(0)" : "scale(1) translateZ(0)",
-                  willChange: "transform, background",
-                  transition: "transform 0.3s ease, background 0.3s ease, border-color 0.3s ease",
-                }}
-              >
-                <div className="text-2xl mb-1">{s.emoji}</div>
-                <div className="font-display text-2xl font-bold mb-0.5" style={{ color: s.color }}>{s.number}</div>
-                <div className="font-sans text-[10px] leading-tight" style={{ color: "hsl(30, 15%, 65%)" }}>{s.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Bottom strip */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6"
-          style={{ borderTop: "1px solid hsl(255, 20%, 25%)" }}
-        >
-          <p className="font-body text-sm" style={{ color: "hsl(30, 15%, 60%)" }}>
-            👇 Click a live sample below — open your invite, see the magic
-          </p>
-          <a href="#samples"
-            className="flex items-center gap-2 font-sans text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:opacity-90 hover:scale-105"
-            style={{ background: "linear-gradient(135deg, hsl(40,90%,58%), hsl(16,88%,60%))", color: "#fff" }}>
-            View Live Samples <ChevronRight className="w-4 h-4" />
-          </a>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
 /* ─── Section header ─── */
 function SectionHeader() {
   return (
@@ -348,11 +234,11 @@ function SectionHeader() {
       className="text-center mb-10"
     >
       <span className="font-sans text-xs tracking-[0.35em] uppercase mb-2 block font-semibold"
-        style={{ color: "hsl(40, 80%, 45%)" }}>Why Hosts Choose Us</span>
+        style={{ color: "hsl(0, 80%, 50%)" }}>Why Hosts Choose Us</span>
       <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight">
         Not Just an Invite.{" "}
         <span style={{
-          background: "linear-gradient(135deg, hsl(40,90%,48%), hsl(16,88%,58%), hsl(340,78%,62%))",
+          background: "linear-gradient(135deg, hsl(0,85%,50%), hsl(347,85%,60%), hsl(347,80%,65%))",
           WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
         }}>An Experience.</span>
       </h2>
@@ -371,14 +257,13 @@ export default function FeaturesSection() {
       {/* Ambient decorations */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 -left-20 w-80 h-80 rounded-full blur-3xl opacity-[0.06]"
-          style={{ background: "hsl(40,90%,58%)" }} />
+          style={{ background: "hsl(0,80%,50%)" }} />
         <div className="absolute bottom-1/4 -right-20 w-80 h-80 rounded-full blur-3xl opacity-[0.06]"
           style={{ background: "hsl(270,68%,64%)" }} />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <SectionHeader />
-        <HeroBanner />
 
         {/* Feature Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
