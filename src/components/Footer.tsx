@@ -35,12 +35,9 @@ export default function Footer() {
           {/* Brand block */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="relative">
-                <Heart className="w-5 h-5 text-rose fill-rose" />
-                <Sparkles className="absolute -top-1.5 -right-1.5 w-2.5 h-2.5 text-gold" />
-              </div>
+              <img src="/logo.png" alt="Yours Truly Logo" className="w-16 h-12" />
               <div>
-                <span className="font-display text-lg font-semibold text-foreground block leading-none">Yours Truly Invites</span>
+                <span className="font-display text-lg font-semibold text-foreground block leading-none">Yours Truly</span>
                 <span className="font-sans text-[9px] tracking-[0.2em] uppercase text-muted-foreground">Digital Invites</span>
               </div>
             </div>
@@ -91,7 +88,7 @@ export default function Footer() {
 
           {/* USP summary */}
           <div>
-            <h4 className="font-display text-base font-semibold text-foreground mb-4">Why Yours Truly Invites?</h4>
+            <h4 className="font-display text-base font-semibold text-foreground mb-4">Why Yours Truly?</h4>
             {[
               "Every guest greeted by name",
               "Event-specific invite per guest",
@@ -113,7 +110,7 @@ export default function Footer() {
           style={{ borderTop: "1px solid hsl(var(--border) / 0.3)" }}
         >
           <p className="font-sans text-xs text-muted-foreground text-center sm:text-left">
-            © {new Date().getFullYear()} Yours Truly Invites. Crafted with{" "}
+            © {new Date().getFullYear()} Yours Truly. Crafted with{" "}
             <Heart className="inline w-3 h-3 text-rose fill-rose" /> in India.
           </p>
 

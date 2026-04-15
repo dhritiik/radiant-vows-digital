@@ -80,13 +80,10 @@ export default function Navbar() {
         >
           {/* Logo */}
           <a href="#" className="flex items-center gap-1.5 sm:gap-2.5 group flex-shrink-0">
-            <div className="relative">
-              <Heart className="w-4 sm:w-5 h-4 sm:h-5 text-rose fill-rose" />
-              <Sparkles className="absolute -top-1.5 -right-1.5 w-2 sm:w-2.5 h-2 sm:h-2.5 text-gold opacity-70" />
-            </div>
+           <img src="/logo.png" alt="Yours Truly Logo" className="w-18 sm:w-14 lg:w-22 h-12" />
             <div className="hidden sm:block">
               <span className="font-display text-sm sm:text-base font-semibold text-foreground leading-none block">
-                Yours Truly Invites
+                Yours Truly
               </span>
               <span className="font-sans text-[8px] tracking-[0.15em] uppercase text-muted-foreground leading-none">
                 Digital Invites
@@ -94,7 +91,7 @@ export default function Navbar() {
             </div>
             <div className="sm:hidden">
               <span className="font-display text-sm font-semibold text-foreground leading-none block">
-                YTI
+                YT
               </span>
             </div>
           </a>
