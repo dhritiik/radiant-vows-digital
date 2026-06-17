@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { MessageCircle, Mail, Phone, Sparkles, Send, Heart } from "lucide-react";
 import { useEffect, useState } from "react";

@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Eye, Users, Calendar, MapPin, ChevronRight, Sparkles } from "lucide-react";
 
@@ -5,7 +6,7 @@ const samples = [
   {
     title: "Priya Sharma",
     subtitle: "Luxury Grand Wedding",
-    url: "https://sj-zeta.vercel.app/?name=Priya_Sharma&event=wedding,mayra,bhakti,reception&guests_wedding=Family&guests_mayra=Family&guests_bhakti=Family&guests_reception=Family",
+    url: "https://sj-zeta.vercel.app/?invite=wedding1&name=Priya_Sharma&event=wedding,mayra,bhakti,reception&guests_wedding=Family&guests_mayra=Family&guests_bhakti=Family&guests_reception=Family",
     events: ["Wedding", "Mayra", "Bhakti", "Reception"],
     guests: "Family (all events)",
     location: "Mumbai",
@@ -161,15 +162,13 @@ export default function SamplesSection() {
         {/* Sample cards grid - simplified */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {samples.map((sample, index) => (
-            <a
+            <div
               key={sample.title}
-              href={sample.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-full block"
+              onClick={() => window.open(sample.url, '_blank')}
+              className="h-full block cursor-pointer"
             >
               <SampleCard sample={sample} index={index} />
-            </a>
+            </div>
           ))}
         </div>
 

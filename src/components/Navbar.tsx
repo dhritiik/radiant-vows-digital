@@ -1,3 +1,4 @@
+"use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Menu, X, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -149,6 +150,13 @@ export default function Navbar() {
           {/* CTA + mobile toggle */}
           <div className="flex items-center gap-2 sm:gap-3">
             <RegionDropdown />
+            <a
+              href="/sign-in"
+              className="hidden md:inline-flex items-center font-sans text-xs sm:text-sm font-semibold px-4 py-2 rounded-full border transition-colors hover:bg-[#F5EFE6]"
+              style={{ borderColor: "rgba(180,140,80,0.3)", color: "hsl(43,75%,40%)" }}
+            >
+              Sign In
+            </a>
             <a
               href="#contact"
               onClick={(e) => {

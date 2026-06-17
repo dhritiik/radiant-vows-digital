@@ -1,3 +1,4 @@
+"use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";

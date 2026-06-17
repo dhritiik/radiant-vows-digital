@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { ArrowDown, Sparkles, Star } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
@@ -195,7 +196,7 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
       <div className="absolute inset-0 z-0">
         <img
-          src={heroImage}
+          src={heroImage.src}
           alt="Event invitation showcase"
           className="w-full h-full object-cover opacity-15"
           fetchPriority="high"

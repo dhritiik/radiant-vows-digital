@@ -1,5 +1,6 @@
+"use client";
 import { motion } from "framer-motion";
-import { Heart, Instagram, MessageCircle, Mail, Sparkles, ArrowUp } from "lucide-react";
+import { Heart, Camera, MessageCircle, Mail, Sparkles, ArrowUp } from "lucide-react";
 
 const footerLinks = [
   { href: "#features", label: "Features" },
@@ -11,7 +12,7 @@ const footerLinks = [
 
 const socialLinks = [
   { icon: MessageCircle, href: "https://wa.me/918080001149", label: "WhatsApp", color: "#25D366" },
-  { icon: Instagram, href: "#", label: "Instagram", color: "#E1306C" },
+  { icon: Camera, href: "#", label: "Instagram", color: "#E1306C" },
   { icon: Mail, href: "mailto:dhritikothari01@gmail.com", label: "Email", color: "hsl(var(--gold))" },
 ];
 

@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { useRegion } from "@/contexts/RegionContext";
