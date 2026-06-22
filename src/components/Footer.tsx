@@ -116,7 +116,6 @@ export default function Footer() {
           </p>
 
           <div className="flex items-center gap-3">
-            <span className="font-sans text-xs text-muted-foreground">Beta Launch 2025</span>
             <motion.button
               onClick={scrollToTop}
               whileHover={{ scale: 1.1, y: -2 }}

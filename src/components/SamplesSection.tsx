@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Eye, Users, Calendar, MapPin, ChevronRight, Sparkles } from "lucide-react";
+import { Eye, ChevronRight, Sparkles } from "lucide-react";
 
 const samples = [
   {
@@ -81,22 +81,6 @@ function SampleCard({ sample, index }: { sample: typeof samples[0]; index: numbe
           <p className="font-sans text-xs text-muted-foreground mt-1 uppercase tracking-widest">{sample.subtitle}</p>
         </div>
 
-        {/* Metadata row */}
-        <div className="flex flex-col gap-2 mb-6">
-          <div className="flex items-center gap-2 text-xs font-sans text-muted-foreground">
-            <Users className="w-3.5 h-3.5 opacity-60" />
-            <span>{sample.guests}</span>
-          </div>
-          <div className="flex items-center gap-2 text-xs font-sans text-muted-foreground">
-            <MapPin className="w-3.5 h-3.5 opacity-60" />
-            <span>{sample.location}</span>
-          </div>
-          <div className="flex items-center gap-2 text-xs font-sans text-muted-foreground">
-            <Calendar className="w-3.5 h-3.5 opacity-60" />
-            <span>{sample.events.length} Events Crafted</span>
-          </div>
-        </div>
-
         {/* Event pills */}
         <div className="flex flex-wrap gap-1.5 mb-6">
           {sample.events.map((ev, i) => (
@@ -136,7 +120,7 @@ function SampleCard({ sample, index }: { sample: typeof samples[0]; index: numbe
 
 export default function SamplesSection() {
   return (
-    <section id="samples" className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
+    <section id="samples" className="relative py-16 sm:py-20 px-4 sm:px-6 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-rose-light/5 to-transparent pointer-events-none" />
 
@@ -147,15 +131,17 @@ export default function SamplesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4"
         >
-          <span className="font-sans text-xs tracking-[0.35em] uppercase text-gold mb-3 block">Live Examples</span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-5">
-            Click. Open. Be{" "}
-            <span className="gold-text">Amazed.</span>
-          </h2>
-          <p className="font-body text-lg text-muted-foreground max-w-xl mx-auto">
-            These are real, working invites — open them to experience exactly what your guests will see. No logins, just magic.
+          <div>
+            <span className="font-sans text-xs tracking-[0.35em] uppercase text-gold mb-3 block">Live Examples</span>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight">
+              Click. Open. Be{" "}
+              <span className="gold-text">Amazed.</span>
+            </h2>
+          </div>
+          <p className="font-sans text-sm text-muted-foreground sm:text-right sm:max-w-[200px] leading-relaxed flex-shrink-0">
+            Real, working invites. No logins — just magic.
           </p>
         </motion.div>
 

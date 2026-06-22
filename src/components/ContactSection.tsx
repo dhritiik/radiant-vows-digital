@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { MessageCircle, Mail, Phone, Sparkles, Send, Heart } from "lucide-react";
+import { MessageCircle, Mail, Phone, Sparkles, Send } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const WHATSAPP_NUMBER = "918080001149";
@@ -155,7 +155,7 @@ export default function ContactSection() {
               >
                 {method.value}
               </p>
-              <p className="font-body text-xs text-muted-foreground mb-5 leading-relaxed flex-1">
+              <p className="font-sans text-xs text-muted-foreground mb-5 leading-relaxed flex-1">
                 {method.subtext}
               </p>
 
@@ -175,58 +175,7 @@ export default function ContactSection() {
           ))}
         </div>
 
-        {/* Bottom note card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="relative rounded-2xl p-8 text-center overflow-hidden"
-          style={{
-            background: "linear-gradient(145deg, hsl(var(--warm-dark)), hsl(25, 28%, 14%))",
-            border: "1px solid hsl(var(--gold) / 0.2)",
-            boxShadow: "0 16px 60px hsl(var(--warm-dark) / 0.3)",
-          }}
-        >
-          {/* Glow orbs */}
-          <div className="absolute top-0 left-1/4 w-48 h-48 rounded-full blur-3xl opacity-10 -translate-y-1/2 pointer-events-none"
-            style={{ background: "hsl(var(--gold))" }} />
-          <div className="absolute bottom-0 right-1/4 w-32 h-32 rounded-full blur-3xl opacity-10 translate-y-1/2 pointer-events-none"
-            style={{ background: "hsl(var(--rose))" }} />
 
-          <div className="relative z-10">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <Heart className="w-4 h-4 fill-current" style={{ color: "hsl(var(--rose))" }} />
-              <span className="font-sans text-xs tracking-widest uppercase font-semibold" style={{ color: "hsl(var(--gold) / 0.8)" }}>
-                Beta Launch — Limited Slots
-              </span>
-              <Heart className="w-4 h-4 fill-current" style={{ color: "hsl(var(--rose))" }} />
-            </div>
-            <p className="font-display text-xl sm:text-2xl font-semibold mb-2" style={{ color: "hsl(var(--cream))" }}>
-              Book your slot before they fill up
-            </p>
-            <p className="font-body text-sm max-w-md mx-auto leading-relaxed mb-6" style={{ color: "hsl(30, 15%, 65%)" }}>
-              We take a limited number of events each month to ensure every invite gets our full attention.
-              Message us on WhatsApp to check availability for your date.
-            </p>
-            <motion.a
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%27d%20like%20to%20book%20a%20slot%20for%20my%20event%20invite${selectedPackage ? `%20-%20${selectedPackage}%20Package` : ""}.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-2.5 font-sans text-sm font-bold px-8 py-3.5 rounded-full transition-all"
-              style={{
-                background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--primary)))",
-                color: "hsl(var(--primary-foreground))",
-                boxShadow: "0 8px 30px hsl(var(--gold) / 0.3)",
-              }}
-            >
-              <MessageCircle className="w-4 h-4" />
-              WhatsApp Us Now
-            </motion.a>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

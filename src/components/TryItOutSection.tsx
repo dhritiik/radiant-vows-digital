@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Plus, Calendar, Users, Camera, Music, Wine, Heart, MapPin } from "lucide-react";
+import { Sparkles, Plus, Calendar, Users, Camera, Music, Wine, Heart, MapPin, ChevronDown } from "lucide-react";
 
 type Theme = "wedding_live" | "party" | "anni_live";
 
@@ -21,6 +21,7 @@ const LIVE_WEDDING_EVENTS = [
 export default function TryItOutSection() {
   const [theme, setTheme] = useState<Theme>("wedding_live");
   const [guestName, setGuestName] = useState("Ria Vora");
+  const [isEventExpanded, setIsEventExpanded] = useState(false);
 
   // Live Mode State
   const [liveEvents, setLiveEvents] = useState<string[]>(["wedding", "mayra", "bhakti", "reception"]);
@@ -77,7 +78,7 @@ export default function TryItOutSection() {
   }, [getLiveUrl, theme]);
 
   return (
-    <section id="try-it-out" className="relative py-20 sm:py-28 md:py-32 px-4 sm:px-6 overflow-hidden bg-background">
+    <section id="try-it-out" className="relative py-16 sm:py-20 px-4 sm:px-6 overflow-hidden bg-background">
       {/* Decorative Gradients */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
       <div className="absolute top-1/4 -right-40 w-[500px] h-[500px] rounded-full blur-[120px] bg-rose/10 pointer-events-none" />
@@ -90,16 +91,13 @@ export default function TryItOutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <span className="font-sans text-xs tracking-[0.35em] uppercase text-gold mb-3 block font-semibold">
-            Interactive Demo
-          </span>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+          <h2 className="font-display text-4xl sm:text-5xl font-bold text-foreground mb-4 leading-tight">
             Try It For <span className="gold-text">Yourself</span>
           </h2>
-          <p className="font-body text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            See exactly how your guests will experience their personalized invite. Type a name and watch the magic happen.
+          <p className="font-sans text-base text-muted-foreground max-w-md mx-auto">
+            Type a name, pick events — watch the invite update live.
           </p>
         </motion.div>
 
@@ -171,7 +169,7 @@ export default function TryItOutSection() {
                     // FIX: Don't set isIframeLoading here — the useEffect handles it
                   }}
                   className="w-full bg-background border border-border/60 rounded-xl px-4 py-3.5 font-display text-lg text-foreground focus:outline-none focus:border-gold/50 focus:ring-2 focus:ring-gold/20 transition-all shadow-sm placeholder:text-muted/50"
-                  placeholder="e.g. Smt. Kokilaben"
+                  placeholder="e.g. Smt. Anita Shah"
                 />
               </div>
 
@@ -184,48 +182,67 @@ export default function TryItOutSection() {
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                     className="relative z-10"
                   >
-                    <div className="mb-6">
-                      <label className="block font-sans text-xs font-semibold tracking-wider uppercase text-muted-foreground mb-3">
-                        Live Event Customization
-                      </label>
-                      <div className="flex flex-col gap-3">
-                        {LIVE_WEDDING_EVENTS.map((event) => {
-                          const isSelected = liveEvents.includes(event.id);
-                          return (
-                            <div key={event.id} className="flex flex-col gap-2 p-3 rounded-xl border border-border/40 bg-background/40">
-                              <div className="flex items-center justify-between">
-                                <button
-                                  onClick={() => {
-                                    setLiveEvents(prev => prev.includes(event.id) ? prev.filter(e => e !== event.id) : [...prev, event.id]);
-                                  }}
-                                  className="flex items-center gap-3"
-                                >
-                                  <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${isSelected ? "bg-gold border-gold" : "border-border/60"}`}>
-                                    {isSelected && <Plus className="w-3.5 h-3.5 text-white rotate-45" />}
+                    {/* Collapsible expander toggle */}
+                    <button
+                      onClick={() => setIsEventExpanded(v => !v)}
+                      className="flex items-center gap-1.5 font-sans text-xs font-semibold tracking-wider uppercase text-muted-foreground hover:text-foreground transition-colors mb-3 select-none"
+                    >
+                      <ChevronDown
+                        className={`w-3.5 h-3.5 transition-transform duration-300 ${isEventExpanded ? "rotate-180" : ""}`}
+                      />
+                      Customize events
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isEventExpanded && (
+                        <motion.div
+                          key="event-panel"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.35, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <div className="flex flex-col gap-3 mb-3">
+                            {LIVE_WEDDING_EVENTS.map((event) => {
+                              const isSelected = liveEvents.includes(event.id);
+                              return (
+                                <div key={event.id} className="flex flex-col gap-2 p-3 rounded-xl border border-border/40 bg-background/40">
+                                  <div className="flex items-center justify-between">
+                                    <button
+                                      onClick={() => {
+                                        setLiveEvents(prev => prev.includes(event.id) ? prev.filter(e => e !== event.id) : [...prev, event.id]);
+                                      }}
+                                      className="flex items-center gap-3"
+                                    >
+                                      <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${isSelected ? "bg-gold border-gold" : "border-border/60"}`}>
+                                        {isSelected && <Plus className="w-3.5 h-3.5 text-white rotate-45" />}
+                                      </div>
+                                      <span className={`font-sans text-sm font-semibold ${isSelected ? "text-foreground" : "text-muted-foreground"}`}>
+                                        {event.label}
+                                      </span>
+                                    </button>
                                   </div>
-                                  <span className={`font-sans text-sm font-semibold ${isSelected ? "text-foreground" : "text-muted-foreground"}`}>
-                                    {event.label}
-                                  </span>
-                                </button>
-                              </div>
-                              {isSelected && (
-                                <div className="mt-1">
-                                  <input
-                                    type="text"
-                                    value={liveGuestCounts[event.id] || ""}
-                                    onChange={(e) => {
-                                      setLiveGuestCounts(prev => ({ ...prev, [event.id]: e.target.value }));
-                                    }}
-                                    className="w-full bg-background/60 border border-border/40 rounded-lg px-3 py-2 text-xs font-sans focus:outline-none focus:border-gold/50 transition-all"
-                                    placeholder="Guest Count (e.g. Family, 2, VIP)"
-                                  />
+                                  {isSelected && (
+                                    <div className="mt-1">
+                                      <input
+                                        type="text"
+                                        value={liveGuestCounts[event.id] || ""}
+                                        onChange={(e) => {
+                                          setLiveGuestCounts(prev => ({ ...prev, [event.id]: e.target.value }));
+                                        }}
+                                        className="w-full bg-background/60 border border-border/40 rounded-lg px-3 py-2 text-xs font-sans focus:outline-none focus:border-gold/50 transition-all"
+                                        placeholder="Guest Count (e.g. Family, 2, VIP)"
+                                      />
+                                    </div>
+                                  )}
                                 </div>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
+                              );
+                            })}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </motion.div>
                 )}
               </AnimatePresence>

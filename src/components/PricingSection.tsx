@@ -14,8 +14,8 @@ interface PricingPlan {
 const pricingPlans: PricingPlan[] = [
   {
     name: "Starter",
-    basePrice: 11999,
-    offerPrice: 9999,
+    basePrice: 7999,
+    offerPrice: 7999,
     conversionRates: { INR: 1, EUR: 0.012, USD: 0.012, AUD: 0.019 },
     features: [
       "Beautiful invitation design",
@@ -26,8 +26,8 @@ const pricingPlans: PricingPlan[] = [
   },
   {
     name: "Professional",
-    basePrice: 19999,
-    offerPrice: 14999,
+    basePrice: 9999,
+    offerPrice: 9999,
     conversionRates: { INR: 1, EUR: 0.012, USD: 0.012, AUD: 0.019 },
     features: [
       "Event filtering",
@@ -38,8 +38,8 @@ const pricingPlans: PricingPlan[] = [
   },
   {
     name: "Premium",
-    basePrice: 24999,
-    offerPrice: 19999,
+    basePrice: 11999,
+    offerPrice: 11999,
     conversionRates: { INR: 1, EUR: 0.012, USD: 0.012, AUD: 0.019 },
     features: [
       "All Professional features",
@@ -111,27 +111,10 @@ export default function PricingSection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-block mb-3 px-3 py-1 rounded-full"
-            style={{
-              background: "linear-gradient(135deg, hsl(347, 90%, 85%), hsl(347, 85%, 75%))",
-              border: "1px solid hsl(347, 85%, 65%)",
-            }}
-          >
-            <span className="font-sans text-xs tracking-[0.2em] uppercase font-bold" style={{ color: "hsl(347, 85%, 35%)" }}>
-              🚀 Beta Launch Special
-            </span>
-          </motion.div>
-          <span className="font-sans text-xs tracking-[0.35em] uppercase text-gold mb-2 block font-semibold">
-            Limited Time Offer
-          </span>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-foreground mb-3 leading-tight">
             Choose when you're ready.
           </h2>
-          <p className="font-body text-base max-w-xl mx-auto" style={{ color: "hsl(25, 15%, 42%)" }}>
+          <p className="font-sans text-base max-w-xl mx-auto" style={{ color: "hsl(25, 15%, 42%)" }}>
             Start designing for free. Pick a plan when you publish.
           </p>
         </motion.div>
@@ -188,15 +171,6 @@ export default function PricingSection() {
                       {symbol}
                       {getPrice(plan.offerPrice)}
                     </span>
-                    <span
-                      className="font-sans text-xs font-semibold line-through transition-colors duration-300"
-                      style={{
-                        color: "hsl(var(--muted-foreground))",
-                      }}
-                    >
-                      {symbol}
-                      {getPrice(plan.basePrice)}
-                    </span>
                   </div>
                   <span
                     className="font-sans text-xs font-semibold transition-colors duration-300"
@@ -245,7 +219,7 @@ export default function PricingSection() {
                         />
                       </div>
                       <span
-                        className="font-body text-xs leading-snug transition-colors duration-300 group-hover:text-white"
+                        className="font-sans text-xs leading-snug transition-colors duration-300 group-hover:text-white"
                         style={{
                           color: "hsl(var(--foreground))",
                         }}

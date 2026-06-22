@@ -197,7 +197,6 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage.src}
-          alt="Event invitation showcase"
           className="w-full h-full object-cover opacity-15"
           fetchPriority="high"
           loading="eager"
@@ -268,11 +267,7 @@ export default function HeroSection() {
                   <span className="gold-text font-semibold">500+</span> Guests Delighted
                 </span>
               </div>
-              <div className="glass-card px-4 py-2 rounded-full">
-                <span className="font-sans text-xs sm:text-sm text-muted-foreground">
-                  <span className="gold-text font-semibold">Beta</span> Launch Special
-                </span>
-              </div>
+
               <div className="glass-card px-4 py-2 rounded-full">
                 <span className="font-sans text-xs sm:text-sm text-muted-foreground">
                   🇮🇳 Made in India
