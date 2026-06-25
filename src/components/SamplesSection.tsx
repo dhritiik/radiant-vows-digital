@@ -72,22 +72,6 @@ const samples = [
     location: "Gujarat",
     color: "#a0b4d4",
   },
-  {
-    title: "Ananya Kapoor",
-    subtitle: "Modern Floral Wedding",
-    theme: "wedding-new" as Theme,
-    defaultName: "Ananya Kapoor",
-    defaultEvents: ["wedding", "mayra", "sangeet", "reception"],
-    defaultGuests: {
-      wedding: "Family",
-      mayra: "Family",
-      sangeet: "Family",
-      reception: "Family",
-    },
-    events: ["Wedding", "Mayra", "Sangeet", "Reception"],
-    location: "Jaipur",
-    color: "#b89fd4",
-  },
 ];
 
 /* ─── URL Builder ───────────────────────────────────────────────────── */
@@ -100,7 +84,7 @@ function buildUrl(
 ) {
   const base = "https://sj-zeta.vercel.app/";
   const p = new URLSearchParams();
-  if (theme === "wedding1" || theme === "wedding2" || theme === "wedding-new") {
+  if (theme === "wedding1" || theme === "wedding2") {
     p.set("invite", theme);
     p.set("name", guestName.replace(/\s+/g, "_"));
     p.set("event", liveEvents.join(","));
@@ -335,14 +319,14 @@ function PreviewModal({ sample, onClose }: { sample: SampleType; onClose: () => 
           </div>
         </div>
 
-          {/* ── RIGHT: Controls ── */}
-          <div
-            className="w-full lg:w-[340px] flex-shrink-0 flex flex-col overflow-y-auto"
-            style={{
-              background: "hsl(var(--card))",
-              borderLeft: `1px solid hsl(var(--border))`,
-            }}
-          >
+        {/* ── RIGHT: Controls ── */}
+        <div
+          className="w-full lg:w-[340px] flex-shrink-0 flex flex-col overflow-y-auto"
+          style={{
+            background: "hsl(var(--card))",
+            borderLeft: `1px solid hsl(var(--border))`,
+          }}
+        >
           <div className="p-6 pb-5 border-b border-border/50 flex items-start justify-between gap-4 flex-shrink-0">
             <div>
               <p className="font-sans text-xs uppercase tracking-[0.25em] mb-1.5" style={{ color: sample.color }}>
