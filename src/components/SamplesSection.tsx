@@ -72,6 +72,22 @@ const samples = [
     location: "Gujarat",
     color: "#a0b4d4",
   },
+  {
+    title: "Ananya & Arjun",
+    subtitle: "New Wedding Experience",
+    theme: "wedding-new" as Theme,
+    defaultName: "Ananya & Arjun",
+    defaultEvents: ["wedding", "mayra", "sangeet", "reception"],
+    defaultGuests: {
+      wedding: "Family",
+      mayra: "Family",
+      sangeet: "Family",
+      reception: "Family",
+    },
+    events: ["Wedding", "Mayra", "Sangeet", "Reception"],
+    location: "Jaipur",
+    color: "#c4a882",
+  },
 ];
 
 /* ─── URL Builder ───────────────────────────────────────────────────── */
@@ -84,7 +100,7 @@ function buildUrl(
 ) {
   const base = "https://sj-zeta.vercel.app/";
   const p = new URLSearchParams();
-  if (theme === "wedding1" || theme === "wedding2") {
+  if (theme === "wedding1" || theme === "wedding2" || theme === "wedding-new") {
     p.set("invite", theme);
     p.set("name", guestName.replace(/\s+/g, "_"));
     p.set("event", liveEvents.join(","));
