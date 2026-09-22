@@ -234,7 +234,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="font-display text-3xl sm:text-5xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 sm:mb-6"
             >
-              <span className="text-foreground">The Magic of an Invite</span>
+              <span className="text-foreground">One invite. </span>
               <br />
               <span
                 style={{
@@ -244,7 +244,7 @@ export default function HeroSection() {
                   backgroundClip: "text",
                 }}
               >
-                That Adapts to Whoever is Looking
+                Infinite possibilities.
               </span>
             </motion.h1>
 
@@ -254,7 +254,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="font-body text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mb-6 sm:mb-8 leading-relaxed"
             >
-              An invitation that honors every relationship. It welcomes your guests by name, curates their exclusive itinerary, and gracefully secures their exact place in your celebration. </motion.p>
+              More than an invitation—a personal welcome. It greets guests by name, curates their exclusive itinerary, and flawlessly secures their place in your celebration. </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
