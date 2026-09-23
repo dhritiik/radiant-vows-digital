@@ -6,8 +6,6 @@ import RegionDropdown from "./RegionDropdown";
 
 const navLinks = [
   { href: "#features", id: "features", label: "Features" },
-  { href: "#try-it-out", id: "try-it-out", label: "Interactive Demo" },
-  { href: "#how-it-works", id: "how-it-works", label: "How It Works" },
   { href: "#samples", id: "samples", label: "Live Samples" },
   { href: "#pricing", id: "pricing", label: "Pricing" },
   { href: "#contact", id: "contact", label: "Contact" },
