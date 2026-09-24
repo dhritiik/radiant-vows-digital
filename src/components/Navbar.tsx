@@ -88,11 +88,6 @@ export default function Navbar() {
                 Digital Invites
               </span>
             </div>
-            <div className="sm:hidden">
-              <span className="font-display text-sm font-semibold text-foreground leading-none block">
-                YT
-              </span>
-            </div>
           </a>
 
           {/* Desktop nav links */}
@@ -203,21 +198,37 @@ export default function Navbar() {
         <AnimatePresence>
           {mobileOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0, y: -10 }}
-              animate={{ opacity: 1, height: "auto", y: 0 }}
-              exit={{ opacity: 0, height: 0, y: -10 }}
-              transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="md:hidden mt-2.5 mx-0 overflow-hidden"
+              initial={{ opacity: 0, y: -12, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -12, scale: 0.98 }}
+              transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="md:hidden mt-3 mx-0"
             >
               <div
-                className="rounded-3xl p-2.5 flex flex-col gap-1.5"
+                className="overflow-hidden rounded-[1.6rem] p-3 flex flex-col gap-3"
                 style={{
-                  background: "hsl(var(--card) / 0.95)",
-                  backdropFilter: "blur(28px)",
-                  border: "1px solid hsl(var(--gold) / 0.25)",
-                  boxShadow: "0 20px 50px rgba(0,0,0,0.15)",
+                  background: "linear-gradient(180deg, hsl(var(--card) / 0.98), hsl(var(--card) / 0.92))",
+                  backdropFilter: "blur(30px)",
+                  border: "1px solid hsl(var(--gold) / 0.22)",
+                  boxShadow: "0 24px 60px rgba(0,0,0,0.18)",
                 }}
               >
+                <div className="flex items-center justify-between gap-3 px-1 pt-0.5">
+                  <div>
+                    <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-gold">Menu</p>
+                    <p className="font-display text-sm font-semibold text-foreground">Navigate the site</p>
+                  </div>
+                  <button
+                    onClick={() => setMobileOpen(false)}
+                    className="w-9 h-9 rounded-full flex items-center justify-center bg-background/80 border border-border/50 text-foreground"
+                    aria-label="Close menu"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+
+                <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
                 {navLinks.map((link, i) => {
                   const isActive = activeLink === link.href;
                   return (
@@ -235,9 +246,10 @@ export default function Navbar() {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.05 + 0.1 }}
-                      className="flex items-center justify-between px-4 py-3 rounded-xl font-sans text-sm transition-all"
+                      className="flex items-center justify-between px-4 py-3.5 rounded-2xl font-sans text-sm transition-all border"
                       style={{
-                        background: isActive ? "hsl(var(--gold) / 0.1)" : "transparent",
+                        background: isActive ? "linear-gradient(135deg, hsl(var(--gold) / 0.14), hsl(var(--primary) / 0.08))" : "hsl(var(--background) / 0.45)",
+                        borderColor: isActive ? "hsl(var(--gold) / 0.3)" : "hsl(var(--border) / 0.7)",
                         color: isActive ? "hsl(var(--foreground))" : "hsl(var(--muted-foreground))",
                         fontWeight: isActive ? "700" : "500",
                       }}
@@ -252,7 +264,7 @@ export default function Navbar() {
                     </motion.a>
                   );
                 })}
-                <div className="px-2 pt-1 pb-2">
+                <div className="grid grid-cols-1 gap-2 pt-1">
                   <a
                     href="#contact"
                     onClick={(e) => {
@@ -264,7 +276,7 @@ export default function Navbar() {
                         setActiveLink("#contact");
                       }
                     }}
-                    className="block text-center font-sans text-sm font-bold py-3 rounded-xl transition-all shadow-lg rose-glow"
+                    className="block text-center font-sans text-sm font-bold py-3.5 rounded-2xl transition-all shadow-lg rose-glow"
                     style={{
                       background: "linear-gradient(135deg, hsl(var(--gold)), hsl(var(--primary)))",
                       color: "hsl(var(--primary-foreground))",

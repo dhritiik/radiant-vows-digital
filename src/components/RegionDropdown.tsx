@@ -19,20 +19,20 @@ export default function RegionDropdown() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2.5 rounded-full border transition-all duration-300"
+        className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-full border transition-all duration-300"
         style={{
           background: "hsl(var(--card) / 0.5)",
           border: `1px solid hsl(var(--gold) / 0.25)`,
           color: "hsl(var(--foreground))",
         }}
       >
-        <span className="font-sans text-xs font-semibold">{config.name}</span>
-        <span className="text-xs opacity-70">({region})</span>
+        <span className="font-sans text-[11px] sm:text-xs font-semibold leading-none">{config.name}</span>
+        <span className="text-[11px] sm:text-xs opacity-70 leading-none">({region})</span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
         >
-          <ChevronDown className="w-4 h-4" />
+          <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </motion.div>
       </button>
 

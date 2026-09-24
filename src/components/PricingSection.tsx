@@ -15,7 +15,7 @@ const pricingPlans: PricingPlan[] = [
   {
     name: "Starter",
     basePrice: 7999,
-    offerPrice: 7999,
+    offerPrice: 5999,
     conversionRates: { INR: 1, EUR: 0.012, USD: 0.012, AUD: 0.019 },
     features: [
       "Beautiful invitation design",
@@ -27,7 +27,7 @@ const pricingPlans: PricingPlan[] = [
   {
     name: "Professional",
     basePrice: 9999,
-    offerPrice: 9999,
+    offerPrice: 7999,
     conversionRates: { INR: 1, EUR: 0.012, USD: 0.012, AUD: 0.019 },
     features: [
       "Event filtering",
@@ -39,7 +39,7 @@ const pricingPlans: PricingPlan[] = [
   {
     name: "Premium",
     basePrice: 11999,
-    offerPrice: 11999,
+    offerPrice: 9999,
     conversionRates: { INR: 1, EUR: 0.012, USD: 0.012, AUD: 0.019 },
     features: [
       "All Professional features",

@@ -279,7 +279,7 @@ function PreviewModal({ sample, onClose }: { sample: SampleType; onClose: () => 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[200] flex items-stretch p-4 overflow-y-auto"
+      className="fixed inset-0 z-[200] flex items-start justify-center p-3 sm:p-4 overflow-y-auto overscroll-contain"
       style={{ backdropFilter: "blur(12px)", background: "rgba(5,5,10,0.88)" }}
       onClick={onClose}
     >
@@ -289,16 +289,24 @@ function PreviewModal({ sample, onClose }: { sample: SampleType; onClose: () => 
         exit={{ opacity: 0, y: 40, scale: 0.96 }}
         transition={{ type: "spring", bounce: 0.18, duration: 0.5 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative m-auto w-full flex flex-col lg:flex-row overflow-hidden shadow-2xl"
+        className="relative m-auto w-full flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden shadow-2xl"
         style={{
           maxWidth: "960px",
-          maxHeight: "94vh",
+          maxHeight: "calc(100dvh - 1.5rem)",
           borderRadius: "28px",
           background: "hsl(var(--background))",
           border: `1px solid ${sample.color}30`,
           boxShadow: `0 40px 80px rgba(0,0,0,0.2), 0 0 0 1px ${sample.color}15`,
         }}
       >
+        <button
+          onClick={onClose}
+          aria-label="Close preview"
+          className="absolute top-3 right-3 z-40 w-10 h-10 rounded-full flex items-center justify-center bg-black/55 text-white backdrop-blur-md border border-white/15 hover:bg-black/75 transition-colors"
+        >
+          <X className="w-4 h-4" />
+        </button>
+
         <div
           className="absolute top-0 inset-x-0 h-[2px] rounded-t-[28px]"
           style={{ background: `linear-gradient(90deg, transparent, ${sample.color}, transparent)` }}
@@ -306,7 +314,7 @@ function PreviewModal({ sample, onClose }: { sample: SampleType; onClose: () => 
 
         {/* ── LEFT: Phone Preview ── */}
         <div
-          className="flex flex-col items-center justify-center gap-6 p-6 lg:p-10 flex-1"
+          className="flex flex-col items-center justify-center gap-6 p-5 sm:p-6 lg:p-10 flex-1 shrink-0"
           style={{ background: `radial-gradient(ellipse at 50% 40%, ${sample.color}0a 0%, transparent 70%)` }}
         >
           <div className="flex items-center gap-2 self-start">
@@ -337,7 +345,7 @@ function PreviewModal({ sample, onClose }: { sample: SampleType; onClose: () => 
 
         {/* ── RIGHT: Controls ── */}
         <div
-          className="w-full lg:w-[340px] flex-shrink-0 flex flex-col overflow-y-auto"
+          className="w-full lg:w-[340px] flex-shrink-0 flex flex-col overflow-visible lg:overflow-y-auto min-h-0"
           style={{
             background: "hsl(var(--card))",
             borderLeft: `1px solid hsl(var(--border))`,
