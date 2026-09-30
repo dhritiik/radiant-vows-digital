@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/i/:path*", "destination": "https://invites.yourstrulyinvites.com/i/:path*" }
+  ]
+}
