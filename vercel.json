@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/i/:path*", "destination": "https://invites.yourstrulyinvites.com/i/:path*" }
+    { "source": "/i/:path*", "destination": "https://yours-truly-five.vercel.app/i/:path*" }
   ]
 }
