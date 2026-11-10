@@ -7,7 +7,7 @@ import RegionDropdown from "./RegionDropdown";
 const navLinks = [
   { href: "#features", id: "features", label: "Features" },
   { href: "#samples", id: "samples", label: "Live Samples" },
-  { href: "#pricing", id: "pricing", label: "Pricing" },
+ // { href: "#pricing", id: "pricing", label: "Pricing" },
   { href: "#contact", id: "contact", label: "Contact" },
 ];
 
