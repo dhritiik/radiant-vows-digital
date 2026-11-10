@@ -1,10 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
-import { MessageCircle, Mail, Phone, Sparkles, Send } from "lucide-react";
+import { Instagram, Mail, Sparkles, Send } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const WHATSAPP_NUMBER = "918080001149";
-const PHONE_DISPLAY = "+91 8080001149";
+const INSTAGRAM_URL = "https://www.instagram.com/yourstruly.invites?psln=d20ydHNjMzh4YjVy&utm_source=qr";
 const EMAIL = "dhritikothari01@gmail.com";
 
 export default function ContactSection() {
@@ -20,29 +19,16 @@ export default function ContactSection() {
 
   const getContactMethods = () => [
     {
-      icon: MessageCircle,
-      label: "WhatsApp",
-      value: "Available on WhatsApp",
-      subtext: "Fastest response — message us anytime",
-      href: `https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%27m%20interested%20in%20Yours%20Truly%20Invites%20${selectedPackage ? `- ${selectedPackage} Package` : "Digital Invites"}.`,
-      color: "#25D366",
-      bg: "#25D36618",
-      border: "#25D36640",
-      cta: "Chat on WhatsApp",
-      emoji: "💬",
-    },
-    {
-      icon: Phone,
-      label: "Phone / Call",
-      value: "WhatsApp Audio Preferred",
-      subtext: "Message us first to schedule a quick call",
-      href: `https://wa.me/${WHATSAPP_NUMBER}?text=Hi!%20I%27d%20like%20to%20schedule%20a%20call%20${selectedPackage ? `to discuss the ${selectedPackage} Package` : "to discuss my event"}.`,
-      color: "hsl(var(--gold))",
-      bg: "hsl(var(--gold) / 0.1)",
-      border: "hsl(var(--gold) / 0.35)",
-      cta: "Message to Call",
-      emoji: "📞",
-      isWhatsApp: true,
+      icon: Instagram,
+      label: "Instagram",
+      value: "@yourstruly.invites",
+      subtext: "DM us anytime — see our latest invites and message us to get started",
+      href: INSTAGRAM_URL,
+      color: "#E1306C",
+      bg: "#E1306C18",
+      border: "#E1306C40",
+      cta: "Message on Instagram",
+      emoji: "📸",
     },
     {
       icon: Mail,
@@ -103,7 +89,7 @@ export default function ContactSection() {
         </motion.div>
 
         {/* Contact cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto gap-5 sm:gap-6 mb-12">
           {contactMethods.map((method, index) => (
             <motion.a
               key={method.label}
